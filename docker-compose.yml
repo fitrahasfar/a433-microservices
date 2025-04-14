@@ -1,0 +1,27 @@
+# Menunjukan versi Docker Compose
+version: '2'
+
+# Mendefinisikan service seperti item-app dan item-db
+services:
+  # Menggunakan image yang telah diunggah ke Docker Hub dan menentukan port agar dapat diakses di port 80 pada host
+  item-app:
+    image: fitrah4551/item-app:v1
+    ports:
+      - "80:8080"
+    # Service akan direstart otomatis ketika berhenti
+    restart: always
+    # Memastikan bahwa item-app hanya berjalan setelah dimulainya item-db.
+    depends_on:
+      - item-db
+
+  # Menyimpan data di volume app-db menggunakan image  MongoDB:3. 
+  item-db:
+    image: mongo:3
+    # Service akan direstart otomatis ketika berhenti
+    restart: always
+    volumes:
+      - app-db:/data/db
+
+# Volume untuk item-db
+volumes:
+  app-db:
