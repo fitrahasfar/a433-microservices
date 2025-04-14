@@ -2,7 +2,7 @@
 services:
   # Menggunakan image yang telah diunggah ke Docker Hub dan menentukan port agar dapat diakses di port 80 pada host
   item-app:
-    image: fitrah4551/item-app:v1
+    image: ghcr.io/fitrahasfar/a433-microservices/item-app:v1
     ports:
       - "80:8080"
     # Service akan direstart otomatis ketika berhenti

@@ -7,10 +7,10 @@ docker build -t item-app:v1 .
 docker images
 
 # Mengubah nama image Docker Hub
-docker tag item-app:v1 fitrah4551/item-app:v1
+docker tag item-app:v1 ghcr.io/fitrahasfar/a433-microservices/item-app:v1
 
 # Login ke Docker Hub dengan menggunakan environment variable sebagai password.
-echo $PASSWORD_DOCKER_HUB | docker login -u fitrah4551 --password-stdin
+echo $GITHUB_TOKEN | docker login ghcr.io -u fitrahasfar --password-stdin
 
 # Push image ke Docker Hub
-docker push fitrah4551/item-app:v1
+docker push ghcr.io/fitrahasfar/a433-microservices/item-app:v1
