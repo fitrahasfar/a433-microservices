@@ -1,9 +1,8 @@
-# Build Docker Image Backend
+# Build docker image backend
 docker build -t ghcr.io/fitrahasfar/karsajobs:latest .
 
-# Login ke GitHub Packages menggunakan token akses pribadi (Personal Access Token)
-# Pastikan Anda telah membuat token dengan akses ke container registry di GitHub
+# Login ke gitHub packages menggunakan PAT
 echo $GITHUB_TOKEN | docker login ghcr.io -u fitrahasfar --password-stdin
 
-# Push Docker Image ke GitHub Container Registry (GitHub Packages)
+# Push docker image ke gitHub container registry
 docker push ghcr.io/fitrahasfar/karsajobs:latest
